@@ -20,7 +20,7 @@ server <- function(input, output) {
     print(input$Files$name)
   })
 
-  shinyDirChoose(input, 'dir', roots = c(currentDirectory='.',root="/",home="~/../"))
+  shinyDirChoose(input, 'dir', roots = c(root="/",currentDirectory='.',home="~/"))
   dir <- reactive(input$dir)
   output$dir <- renderPrint(dir())
     
