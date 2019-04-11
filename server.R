@@ -11,22 +11,31 @@ library(tools)
 library(grid)
 library(gridExtra)
 
+
 server <- function(input, output) {
-  #Increase size of upload files to 500 Mo
-  options(shiny.maxRequestSize=500*1024^2)
-  
   output$inputFiles <- renderPrint({
     req(input$Files)
     print(input$Files$name)
   })
 
-  shinyDirChoose(input, 'dir', roots = c(rootMAC="/",rootWindows="C:/",currentDirectory='.',home="~/",dirname(getwd())))
+  shinyDirChoose(input, 'dir', roots = c(currentDirectory='./',rootMAC="/",rootWindows="C:/", home="~/", workingDirectory=getwd()))
   dir <- reactive(input$dir)
-  output$dir <- renderPrint(dir())
-    
+
   output$dir2 <- renderPrint({
     req(input$dir)
-    print(input$dir$path[[2]][1])
+    if(input$dir$root[1] == "currentDirectory" || input$dir$root[1] == "workingDirectory"){
+      firstBox="."
+    }
+    if(input$dir$root[1] == "rootMAC"){
+      firstBox=""
+    }
+    if(input$dir$root[1] == "rootWindows"){
+      firstBox="C:"
+    }
+    if(input$dir$root[1] == "home"){
+      firstBox="~"
+    }
+    print(paste0(firstBox,paste0(input$dir$path,collapse="/")))
   })
   
   output$Samples <- renderText({
@@ -41,7 +50,19 @@ server <- function(input, output) {
     withProgress(message = 'Reading and cleaning:', value = 0, {
       
       #Output directory
-      saveddirname=input$dir$path[[2]][1]
+      if(input$dir$root[1] == "currentDirectory" || input$dir$root[1] == "workingDirectory"){
+        firstBox="."
+      }
+      if(input$dir$root[1] == "rootMAC"){
+        firstBox=""
+      }
+      if(input$dir$root[1] == "rootWindows"){
+        firstBox="C:"
+      }
+      if(input$dir$root[1] == "home"){
+        firstBox="~"
+      }
+      saveddirname=paste0(firstBox,paste0(input$dir$path,collapse="/"))
       print(paste0("The output directory is :",saveddirname))
 
       #Loop on the filepaths
@@ -71,9 +92,16 @@ server <- function(input, output) {
         synPerturbed.c <- clean(mydata, vectMarkers=vectMarkers, filePrefixWithDir="sample_out", ext="fcs", diagnostic=TRUE)
         print("Cleaning end.")
         
-        #Estimate the subset of biexponential transform hyperbolic sine transformation functions
-        lgcl <- estimateLogicle(synPerturbed.c, unname(parameters(synPerturbed.c)$name[vectMarkers]))
-
+        #Create high quality dataset
+        rg <- rectangleGate(filterId="gvb", list("GoodVsBad"=c(0, 9999)))
+        idx <- filter(synPerturbed.c, rg)
+        synPerturbed.hQC <- Subset(synPerturbed.c, idx)
+        
+        #Create low quality dataset
+        rg <- rectangleGate(filterId="gvb", list("GoodVsBad"=c(10000, 10000000)))
+        idx <- filter(synPerturbed.c, rg)
+        synPerturbed.lQC <- Subset(synPerturbed.c, idx)
+        
         #If we want to compute the plots
         if(input$output_plots){
           
@@ -93,16 +121,9 @@ server <- function(input, output) {
               b = paste0("`",paste0(colnames(mydata)[vectTime],"`"))
               myform=as.formula(paste(a, b, sep=" ~ "))
   
-              #Create high quality dataset
-              rg <- rectangleGate(filterId="gvb", list("GoodVsBad"=c(0, 9999)))
-              idx <- filter(synPerturbed.c, rg)
-              synPerturbed.hQC <- Subset(synPerturbed.c, idx)
-  
-              #Create low quality dataset
-              rg <- rectangleGate(filterId="gvb", list("GoodVsBad"=c(10000, 10000000)))
-              idx <- filter(synPerturbed.c, rg)
-              synPerturbed.lQC <- Subset(synPerturbed.c, idx)
-
+              #Estimate the subset of biexponential transform hyperbolic sine transformation functions
+              lgcl <- estimateLogicle(synPerturbed.c, unname(parameters(synPerturbed.c)$name[vectMarkers]))
+              
               #Transform
               synPerturbed.cl <- transform(synPerturbed.c, lgcl)
               
@@ -127,16 +148,18 @@ server <- function(input, output) {
         
         #Write FCS files
         if(input$output_QC){
-          write.FCS(synPerturbed.c, paste0(input$dir$path[[2]][1], "/", savedname,"_QC.fcs"), what="numeric", delimiter = "\\")
+          write.FCS(synPerturbed.c, paste0(saveddirname, "/", savedname,"_QC.fcs"), what="numeric", delimiter = "\\")
         }
         if(input$output_hQC){
-          write.FCS(synPerturbed.hQC, paste0(input$dir$path[[2]][1], "/", savedname,"_hQC.fcs"), what="numeric", delimiter = "\\")
+          write.FCS(synPerturbed.hQC, paste0(saveddirname, "/", savedname,"_hQC.fcs"), what="numeric", delimiter = "\\")
         }
         if(input$output_lQC){
-          write.FCS(synPerturbed.lQC, paste0(input$dir$path[[2]][1], "/", savedname,"_lQC.fcs"), what="numeric", delimiter = "\\")
+          write.FCS(synPerturbed.lQC, paste0(saveddirname, "/", savedname,"_lQC.fcs"), what="numeric", delimiter = "\\")
         }
       }
       print("If this message appears the program have reached the end! You can look at the output directory to see the results!")
     })
   })
 }
+
+shinyApp(ui = ui, server = server)
