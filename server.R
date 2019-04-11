@@ -36,7 +36,7 @@ server <- function(input, output) {
     if(input$dir$root[1] == "home"){
       firstBox="~"
     }
-    print(paste0(firstBox,paste0(input$dir$path,collapse="/")))
+    #print(paste0(firstBox,paste0(input$dir$path,collapse="/")))
   })
   
   output$Samples <- renderText({
