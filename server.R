@@ -16,11 +16,6 @@ server <- function(input, output) {
 
   shinyDirChoose(input, 'dir', roots = c(rootMAC="/", rootWindows="C:/", home="~/", currentDirectory='./', workingDirectory=getwd()))
   dir <- reactive(input$dir)
-
-  output$dir2 <- renderPrint({
-    req(input$dir)
-    print(paste0(input$dir$path,collapse="/"))
-  })
   
 }
 
