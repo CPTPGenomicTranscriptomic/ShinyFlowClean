@@ -44,3 +44,12 @@ Start an R session using RStudio and run these lines:
 shiny::runGitHub("ShinyFlowClean", "mlebeur")
 ```
 This command will download the code of ShinyFlowClean from GitHub to a temporary directory of your computer and then launch the ShinyFlowClean app in the web browser. Once the web browser was closed, the downloaded code of ShinyFlowClean would be deleted from your computer. Next time when you run this command in RStudio, it will download the source code of ShinyFlowClean from GitHub to a temporary directory again. 
+
+**Step 4: Choose you analysis set up**  
+
+Choose your output directory: from root select the output directory.
+Upload your FCS files.
+Unchecked some boxes if you want to.
+
+
+
