@@ -15,7 +15,7 @@ library(gridExtra)
 server <- function(input, output) {
   output$inputFiles <- renderPrint({
     req(input$Files)
-    print(input$Files$name)
+    #print(input$Files$name)
   })
 
   shinyDirChoose(input, 'dir', roots = c(currentDirectory='./',rootMAC="/",rootWindows="C:/", home="~/"))
