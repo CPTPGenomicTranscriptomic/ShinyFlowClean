@@ -18,7 +18,7 @@ ui <- fluidPage(
 #  titlePanel("FlowClean"),
 br(),
   headerPanel(
-    list(HTML('<img src="Logo_cptp.png"/>'), HTML('<a href="https://www.cptp.inserm.fr/en/technical-platforms/genomic-and-transcriptomic/">Genomic and transcriptomic plateform</a>'), HTML('<img src="Logo_inserm.png"/>')),
+    list(HTML('<img src="Logo_cptp.png"/>'), HTML('<a href="https://www.cptp.inserm.fr/en/technical-platforms/genomic-and-transcriptomic/">Genomic and transcriptomic platform</a>'), HTML('<img src="Logo_inserm.png"/>')),
     windowTitle="My Title"
   ),
 br(),
