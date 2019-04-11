@@ -64,14 +64,14 @@ server <- function(input, output) {
         firstBox="~"
       }
       saveddirname=paste0(firstBox,paste0(input$dir$path,collapse="/"))
-      print(paste0("The output directory is :",saveddirname))
+      #print(paste0("The output directory is :",saveddirname))
 
       #Loop on the filepaths
       for (fcs in input$Files$datapath) {
         
         #Output subdirectory
         savedname=file_path_sans_ext(input$Files$name[i])
-        print(paste0("The output subdirectory is :",savedname))
+        #print(paste0("The output subdirectory is :",savedname))
         
         # Increment the progress bar, and update the detail text.
         incProgress(1/(length(input$Files$name)), detail = paste("", input$Files$name[i]))
@@ -81,7 +81,7 @@ server <- function(input, output) {
         mydata = read.FCS(fcs, transformation = FALSE)
 
         #Create output directory by sample
-        print(paste0("Create sub-directory: ",savedname))
+        #print(paste0("Create sub-directory: ",savedname))
         dir.create(paste0(saveddirname, "/", savedname))
 
         #Excludes indices for various 'scatter' parameters (e.g. 'FSC-A', ..., 'SSC-A')
