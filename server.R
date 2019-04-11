@@ -19,19 +19,7 @@ server <- function(input, output) {
 
   output$dir2 <- renderPrint({
     req(input$dir)
-    if(input$dir$root[1] == "currentDirectory" || input$dir$root[1] == "workingDirectory"){
-      firstBox="."
-    }
-    if(input$dir$root[1] == "rootMAC"){
-      firstBox=""
-    }
-    if(input$dir$root[1] == "rootWindows"){
-      firstBox="C:"
-    }
-    if(input$dir$root[1] == "home"){
-      firstBox="~"
-    }
-    print(paste0(firstBox,paste0(input$dir$path,collapse="/")))
+    print(paste0(input$dir$path,collapse="/"))
   })
   
 }
