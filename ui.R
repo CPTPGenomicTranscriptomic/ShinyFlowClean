@@ -1,14 +1,5 @@
 options(warn=-1)
 
-library(shiny)
-library(shinyFiles)
-library(openCyto)
-library(xtable)
-library(flowClean)
-library(tools)
-library(grid)
-library(gridExtra)
-
 ui <- fluidPage(
   br(),
   tags$head(
@@ -18,7 +9,7 @@ ui <- fluidPage(
 #  titlePanel("FlowClean"),
 br(),
   headerPanel(
-    list(HTML('<img src="Logo_cptp.png"/>'), HTML('<a href="https://www.cptp.inserm.fr/en/technical-platforms/genomic-and-transcriptomic/">Genomic and transcriptomic platform</a>'), HTML('<img src="Logo_inserm.png"/>')),
+    list(HTML('<img src="Logo_cptp.png"/>'), HTML('<a href="https://www.cptp.inserm.fr/en/technical-platforms/genomic-and-transcriptomic/">Genomic and transcriptomic plateform</a>'), HTML('<img src="Logo_inserm.png"/>')),
     windowTitle="My Title"
   ),
 br(),
@@ -30,9 +21,9 @@ br(),
       h3("Please upload your *.fcs files:"),
       fileInput(inputId = "Files", label = "Select Samples", multiple = TRUE, accept = ".fcs"),
       h3("Please choose your output options:"),
-      checkboxInput("output_plots", "Create one plot by marker of the FCS files", value = TRUE),
+      checkboxInput("output_plots", "Create one plot by marker of the FCS files", value = FALSE),
       checkboxInput("output_hQC", "Write file with high quality events only (\"_hQC.fcs\")", value = TRUE),
-      checkboxInput("output_lQC", "Write file with low quality events only (\"_lQC.fcs\")", value = TRUE),
+      checkboxInput("output_lQC", "Write file with low quality events only (\"_lQC.fcs\")", value = FALSE),
       checkboxInput("output_QC", "Write file with both low (GoodVsBad > 10,000) and high (GoodVsBad < 10,000) quality events (\"_QC.fcs\")", value = TRUE)
     ),
     
