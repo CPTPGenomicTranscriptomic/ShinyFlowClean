@@ -1,5 +1,14 @@
 options(warn=-1)
 
+library(shiny)
+library(shinyFiles)
+library(openCyto)
+library(xtable)
+library(flowClean)
+library(tools)
+library(grid)
+library(gridExtra)
+
 ui <- fluidPage(
   br(),
   tags$head(
