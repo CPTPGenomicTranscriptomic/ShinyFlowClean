@@ -1,20 +1,19 @@
 options(warn=-1)
 
-if (!require("shiny")){
+if (!require("shiny"))
     install.packages("shiny")  
-}
 
-if (!require("shinyFiles")){
+if (!require("shinyFiles"))
     install.packages('shinyFiles')
-}
 
 if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
-BiocManager::install("flowClean", version = "3.8")
 
-if (!requireNamespace("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
-BiocManager::install("openCyto", version = "3.8")
+if (!require("flowClean"))
+    BiocManager::install("flowClean")
+
+if (!require("openCyto"))
+BiocManager::install("openCyto")
 
 library(shiny)
 library(shinyFiles)
