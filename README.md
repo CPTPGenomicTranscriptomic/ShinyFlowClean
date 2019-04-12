@@ -20,6 +20,8 @@ Start an R session using RStudio and run these lines:
 ```
 install.packages("shiny")  
 
+install.packages('shinyFiles')
+
 install.packages("data.table")
 
 install.packages("xtable")
