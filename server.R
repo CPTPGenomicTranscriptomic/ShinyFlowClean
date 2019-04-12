@@ -2,6 +2,22 @@
 options(shiny.maxRequestSize=500*1024^2)
 options(warn=-1)
 
+if (!require("shiny")){
+    install.packages("shiny")  
+}
+
+if (!require("shinyFiles")){
+    install.packages('shinyFiles')
+}
+
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+BiocManager::install("flowClean", version = "3.8")
+
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+BiocManager::install("openCyto", version = "3.8")
+
 library(shiny)
 library(shinyFiles)
 library(openCyto)
