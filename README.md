@@ -14,30 +14,16 @@ Before running the app you will need to have R and RStudio installed (tested wit
 Please check CRAN (<a href="https://cran.r-project.org/" target="_blank">https://cran.r-project.org/</a>) for the installation of R.  
 Please check <a href="https://www.rstudio.com/" target="_blank">https://www.rstudio.com/</a> for the installation of RStudio.  
 
-**Step 2: Install the R Shiny package and other packages required by shinyCircos**
+**Step 2: Install the R Shiny package**
 
-Start an R session using RStudio and run these lines:  
+Start an R session using RStudio and run this line:  
 ```
-if (!require("shiny")){
-    install.packages("shiny")  
-}
-
-if (!require("shinyFiles")){
-    install.packages('shinyFiles')
-}
-
-if (!requireNamespace("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
-BiocManager::install("flowClean", version = "3.8")
-
-if (!requireNamespace("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
-BiocManager::install("openCyto", version = "3.8")
+if (!require("shiny")){install.packages("shiny")}
 ```
 
 **Step 3: Start the app**  
 
-Start an R session using RStudio and run these lines:  
+Start an R session using RStudio and run this line:  
 ```
 shiny::runGitHub("ShinyFlowClean", "mlebeur")
 ```
