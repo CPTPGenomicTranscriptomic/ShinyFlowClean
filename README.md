@@ -37,9 +37,9 @@ Choose the operating system (Windows pr MAC) in the top rigth corner.
 
 The from root select the output directory.
 
-The application can crash (everything in grey, no interactivity) if your choose the wrong operating system, if you choose a directory where you haven't some rigths and others...
+The application can crash (everything in grey, no interactivity) if you choose the wrong operating system, if you choose a directory where you haven't some rigths and others...
 
-Experts can try others Volumes (as currentDirectory, home, etc...) but they have to use the application on local side.
+Experts can try others Volumes (as currentDirectory, home, etc...) but they have to use the application on local.
 
 
 **2. Choose your output options:**
@@ -81,6 +81,4 @@ The ouput directory should appears below \"Remember your output directory was\".
 This message \"If this message appears the program have reached the end! You can look at the output directory to see the results!\" should be print below \"If the next line is in red ... it's your problem... not mine, YOUR'S... Good luck!\".
 
 If any Red word or line appears the apllication has encountered an error. Don't hesitate to look at the Rstudio console to track the problem.
-
-
 
