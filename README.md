@@ -67,7 +67,7 @@ The blue progress bar should move until the message \"upload complete\" appears.
 
 **4. Wait for the computation:**
 
-Once the upload competed, some progress boxes should appears in the left-bottom corner. These indicate that the application is running and what is going on. One progress box is decounting the input files and the other the marker plots (in case you choose this option).
+Once the upload competed some progress boxes should appear in the right-bottom corner. These indicate that the application is running and what is going on. One progress box is decounting the input files and the other the marker plots (in case you choose this option).
 
 
 **5. The results:**
@@ -84,5 +84,7 @@ If any Red word or line appears the apllication has encountered an error. Don't 
 
 The results should be located at the output directory.
 
+The webpage should look like this!
 
+![alt text](https://github.com/mlebeur/ShinyFlowClean/blob/master/FlowClean_interface.png)
 
