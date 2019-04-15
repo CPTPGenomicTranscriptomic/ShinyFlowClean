@@ -40,15 +40,15 @@ br(),
 
   sidebarLayout(
     sidebarPanel(
-      h3("Please choose your output directory:"),
+      h3("Choose your output directory:"),
       shinyDirButton("dir", "Choose output directory", "Select output directory"),
-      h3("Please upload your *.fcs files:"),
-      fileInput(inputId = "Files", label = "Select Samples", multiple = TRUE, accept = ".fcs"),
-      h3("Please choose your output options:"),
+      h3("Choose your output options:"),
       checkboxInput("output_plots", "Create one plot by marker of the FCS files", value = FALSE),
       checkboxInput("output_hQC", "Write file with high quality events only (\"_hQC.fcs\")", value = TRUE),
       checkboxInput("output_lQC", "Write file with low quality events only (\"_lQC.fcs\")", value = FALSE),
-      checkboxInput("output_QC", "Write file with both low (GoodVsBad > 10,000) and high (GoodVsBad < 10,000) quality events (\"_QC.fcs\")", value = TRUE)
+      checkboxInput("output_QC", "Write file with both low (GoodVsBad > 10,000) and high (GoodVsBad < 10,000) quality events (\"_QC.fcs\")", value = TRUE),
+      h3("Upload your *.fcs files:"),
+      fileInput(inputId = "Files", label = "Select Samples", multiple = TRUE, accept = ".fcs")
     ),
     
     mainPanel(
