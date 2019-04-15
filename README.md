@@ -74,11 +74,15 @@ Once the upload competed, some progress boxes should appears in the left-bottom 
 
 Once the progress boxes have disappeared.
 
-The inputs files should be listed below \"Remember your input files were:=\".
+The inputs files should be listed below \"Remember your input files were:\".
 
 The ouput directory should appears below \"Remember your output directory was\".
 
 This message \"If this message appears the program have reached the end! You can look at the output directory to see the results!\" should be print below \"If the next line is in red ... it's your problem... not mine, YOUR'S... Good luck!\".
 
 If any Red word or line appears the apllication has encountered an error. Don't hesitate to look at the Rstudio console to track the problem.
+
+The results should be located at the output directory.
+
+
 
