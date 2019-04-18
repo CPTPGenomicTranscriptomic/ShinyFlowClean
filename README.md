@@ -25,7 +25,7 @@ if (!require("shiny")){install.packages("shiny")}
 
 Start an R session using RStudio and run this line:  
 ```
-shiny::runGitHub("ShinyFlowClean", "mlebeur")
+shiny::runGitHub("ShinyFlowClean", "CPTPGenomicTranscriptomic")
 ```
 This command will download the code of ShinyFlowClean from GitHub to a temporary directory of your computer and then launch the ShinyFlowClean app in the web browser. Once the web browser was closed, the downloaded code of ShinyFlowClean would be deleted from your computer. Next time when you run this command in RStudio, it will download the source code of ShinyFlowClean from GitHub to a temporary directory again. 
 
@@ -86,5 +86,5 @@ The results should be located at the output directory.
 
 The webpage should look like this!
 
-![alt text](https://github.com/mlebeur/ShinyFlowClean/blob/master/FlowClean_interface.png)
+![alt text](https://github.com/CPTPGenomicTranscriptomic/ShinyFlowClean/blob/master/FlowClean_interface.png)
 
