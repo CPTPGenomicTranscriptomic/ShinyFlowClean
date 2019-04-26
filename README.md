@@ -21,12 +21,21 @@ Start an R session using RStudio and run this line:
 if (!require("shiny")){install.packages("shiny")}
 ```
 
+Rstudio (in the console) can ask about updates.
+
+If a message like: "Update all/some/none?" appears in the Rstudio console just press "n" and enter.
+
 ## Step 3: Start the app  
 
 Start an R session using RStudio and run this line:  
 ```
 shiny::runGitHub("ShinyFlowClean", "CPTPGenomicTranscriptomic")
 ```
+
+Rstudio (in the console) can ask about updates.
+
+If a message like: "Update all/some/none?" appears in the Rstudio console just press "n" and enter (can happen several times).
+
 This command will download the code of ShinyFlowClean from GitHub to a temporary directory of your computer and then launch the ShinyFlowClean app in the web browser. Once the web browser was closed, the downloaded code of ShinyFlowClean would be deleted from your computer. Next time when you run this command in RStudio, it will download the source code of ShinyFlowClean from GitHub to a temporary directory again. 
 
 ## Step 4: Choose your analysis set up  
