@@ -97,3 +97,7 @@ The webpage should look like this!
 
 ![alt text](https://github.com/CPTPGenomicTranscriptomic/ShinyFlowClean/blob/master/FlowClean_interface.png)
 
+
+## Comments
+
+The package flowClean seems to filtered less data than flowAI but it's slower.
