@@ -1,5 +1,5 @@
 #Increase size of upload files to 500 Mo
-options(shiny.maxRequestSize=500*1024^2)
+options(shiny.maxRequestSize=2000*1024^2)
 options(warn=-1)
 
 if (!require("shiny"))
