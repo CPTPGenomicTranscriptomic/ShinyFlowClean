@@ -28,9 +28,7 @@ library(gridExtra)
 
 
 server <- function(input, output) {
-  #Increase size of upload files to 500 Mo
-  options(shiny.maxRequestSize=500*1024^2)
-  
+ 
   output$inputFiles <- renderPrint({
     req(input$Files)
     print(input$Files$name)
