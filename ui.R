@@ -53,7 +53,7 @@ br(),
     
     mainPanel(
       h4("flowClean is an algorithm to track subset frequency changes within a sample during acquisition, and flag time periods with fluorescence perturbations leading to the emergence of false populations. Aberrant time periods are reported as a new parameter and added to a revised data file, allowing users to easily review and exclude those events from further analysis."),
-      HTML('<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5522377/pdf/nihms870722.pdf">FlowClean publication</a>'), citation("flowClean"), br(),
+      #HTML('<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5522377/pdf/nihms870722.pdf">FlowClean publication</a>'), citation("flowClean"), br(),
       titlePanel("The results will be print here:"),br(),
       #textOutput("inputFiles"),
       h4("Remember your input files were:"),
