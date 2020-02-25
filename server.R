@@ -169,13 +169,13 @@ server <- function(input, output) {
         
         #Write FCS files
         if(input$output_QC){
-          write.FCS(synPerturbed.c, paste0(saveddirname, "/", savedname,"_QC.fcs"), what="numeric", delimiter = "\\")
+          write.FCS(synPerturbed.c, paste0(saveddirname, "/", savedname, "/", savedname,"_QC.fcs"), what="numeric", delimiter = "\\")
         }
         if(input$output_hQC){
-          write.FCS(synPerturbed.hQC, paste0(saveddirname, "/", savedname,"_hQC.fcs"), what="numeric", delimiter = "\\")
+          write.FCS(synPerturbed.hQC, paste0(saveddirname, "/", savedname, "/", savedname,"_hQC.fcs"), what="numeric", delimiter = "\\")
         }
         if(input$output_lQC){
-          write.FCS(synPerturbed.lQC, paste0(saveddirname, "/", savedname,"_lQC.fcs"), what="numeric", delimiter = "\\")
+          write.FCS(synPerturbed.lQC, paste0(saveddirname, "/", savedname, "/", savedname,"_lQC.fcs"), what="numeric", delimiter = "\\")
         }
       }
       print("If this message appears the program have reached the end! You can look at the output directory to see the results!")
